@@ -27,6 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // DOSEN ROUTE
 Route::get('/dosen/dashboard', [App\Http\Controllers\Dosen\DashboardController::class, 'index']);
+Route::get('/dosen/matakuliah', function () {
+    return view('dosen.matakuliah');
+});
 
 // MAHASISWA ROUTE
 Route::get('/mahasiswa/dashboard', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'index']);

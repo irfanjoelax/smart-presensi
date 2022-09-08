@@ -15,6 +15,7 @@ Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberika ol
 
 ### Module
 - Role: Dosen dan Mahasiswa
+- Master Data CRUD Mata Kuliah : Role Dosen
 
 ### Developer
 Dibuat dan dikembangkan oleh [Muhammad Irfan Permana, S.Kom.](https://wa.me/+6283140617623)
