@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Dosen\Matakuliah;
 
 use App\Models\Matakuliah;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,8 +16,10 @@ class Index extends Component
 
     public function render()
     {
+        $matakuliahs = Matakuliah::where('user_id', Auth::id());
+
         return view('livewire.dosen.matakuliah.index', [
-            'matakuliahs' => Matakuliah::latest()->paginate(12)
+            'matakuliahs' => $matakuliahs->latest()->paginate(12)
         ]);
     }
 

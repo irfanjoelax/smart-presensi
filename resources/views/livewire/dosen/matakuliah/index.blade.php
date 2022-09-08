@@ -19,14 +19,14 @@
                         <div wire:loading wire:target="edit({{ $matakuliah->id }})">
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         </div>
-                        Mau diedit nih
+                        Ubah
                     </button>
                     <button type="button" class="btn btn-sm btn-outline-danger"
                         wire:click="delete({{ $matakuliah->id }})">
                         <div wire:loading wire:target="delete({{ $matakuliah->id }})">
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         </div>
-                        Hapus yah?
+                        Hapus
                     </button>
                 </div>
             </div>

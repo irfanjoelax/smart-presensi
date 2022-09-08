@@ -30,6 +30,9 @@ Route::get('/dosen/dashboard', [App\Http\Controllers\Dosen\DashboardController::
 Route::get('/dosen/matakuliah', function () {
     return view('dosen.matakuliah');
 });
+Route::get('/dosen/generate-qr', function () {
+    return view('dosen.generate-qr');
+});
 
 // MAHASISWA ROUTE
 Route::get('/mahasiswa/dashboard', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'index']);

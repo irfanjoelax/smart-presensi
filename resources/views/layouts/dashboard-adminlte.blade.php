@@ -9,16 +9,11 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
-
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
     <link rel="stylesheet"
         href="https://adminlte.io/themes/v3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css?v=3.2.0">
 
     <!-- Laravel MIX -->
@@ -87,7 +82,7 @@
 
                         <li class="nav-header">FITUR</li>
                         <li class="nav-item">
-                            <a href="{{ url('dosen/generate', []) }}" class="nav-link">
+                            <a href="{{ url('dosen/generate-qr', []) }}" class="nav-link">
                                 <i class="nav-icon fas fa-qrcode"></i>
                                 <p>
                                     Generate QR Code
@@ -150,37 +145,9 @@
 
 
     <script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
-
     <script src="https://adminlte.io/themes/v3/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-
     <script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script src="plugins/chart.js/Chart.min.js"></script>
-
-    <script src="plugins/sparklines/sparkline.js"></script>
-
-    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-
-    <script src="plugins/moment/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
-
-    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <script src="plugins/summernote/summernote-bs4.min.js"></script>
-
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
     <script src="https://adminlte.io/themes/v3/dist/js/adminlte.js?v=3.2.0"></script>
-
-    <script src="dist/js/demo.js"></script>
-
     <script src="https://adminlte.io/themes/v3/dist/js/pages/dashboard.js"></script>
 
     @livewireScripts
