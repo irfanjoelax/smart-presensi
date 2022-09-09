@@ -4,13 +4,17 @@ namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pertemuan;
+use App\Models\Presensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('mahasiswa.dashboard');
+        return view('mahasiswa.dashboard', [
+            'presensis' => Presensi::where('user_id', Auth::id())->latest()->get()
+        ]);
     }
 
     public function profile()

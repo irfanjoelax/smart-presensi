@@ -20,4 +20,9 @@ class Pertemuan extends Model
     {
         return $this->hasMany('App\Models\Presensi');
     }
+
+    public function matakuliah()
+    {
+        return $this->belongsTo('App\Models\Matakuliah');
+    }
 }

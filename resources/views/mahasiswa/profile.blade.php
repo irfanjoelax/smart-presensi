@@ -14,13 +14,18 @@
         </h1>
         <h5 class="text-muted">Atur profile dan data diri kamu disini.</h5>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-4">
+        <div class="col-12">
+            <livewire:mahasiswa.profile />
+        </div>
+    </div>
+    <div class="row mt-3">
         <div class="col">
             <a href="{{ route('logout') }}"
                 class="btn btn-lg btn-outline-danger d-flex gap-2 align-items-center justify-content-center"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i>
-                <span>keluar Ahh..</span>
+                <span>Keluar Aplikasi</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

@@ -1,5 +1,5 @@
 ## About
-Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberika oleh dosen di suatu Perguruan Tinggi dengan Metode Enkripsi RSA
+Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberikan oleh dosen di suatu Perguruan Tinggi dengan Metode Enkripsi RSA
 
 ### Requirements
 - HTML5, CSS3, Basic Javascript
@@ -18,9 +18,11 @@ Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberika ol
 - Turbolinks for SPA
 
 ### Module
-- Role: Dosen dan Mahasiswa
+- Multi Role (2): Dosen dan Mahasiswa
 - Master Data CRUD Mata Kuliah : Role Dosen
 - Fitur Generate QR Code untuk setiap pertemuan Mata Kuliah: Role Dosen
+- Daftar Presensi berdasarkan Matakuliah dan Pertemuan: Role Dosen
+- Halaman pengaturan profile: Role Mahasiswa
 
 ### Developer
 Dibuat dan dikembangkan oleh [Muhammad Irfan Permana, S.Kom.](https://wa.me/+6283140617623)

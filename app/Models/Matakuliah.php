@@ -20,4 +20,9 @@ class Matakuliah extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function pertemuans()
+    {
+        return $this->hasMany('App\Models\Pertemuan');
+    }
 }
