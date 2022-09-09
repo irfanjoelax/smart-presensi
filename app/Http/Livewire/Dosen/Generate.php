@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Generate extends Component
 {
-    public $idPertemuan, $matakuliah_id, $urutan, $kunci, $tersisa = 0;
+    public $id_pertemuan, $matakuliah_id, $urutan, $kunci, $tersisa = 0;
 
     protected $rules = [
         'matakuliah_id' => 'required',
@@ -33,28 +33,52 @@ class Generate extends Component
         $this->validate();
 
         $matakuliah = Matakuliah::find($this->matakuliah_id);
-        $pertemuan = Pertemuan::updateOrCreate(
-            [
-                'matakuliah_id' => $this->matakuliah_id,
-                'urutan'        => $this->urutan,
-            ],
-            [
-                'matakuliah_id' => $this->matakuliah_id,
-                'urutan'        => $this->urutan,
-                'kunci'         => base64_encode(openssl_random_pseudo_bytes(100)),
-                'jumlah'        => $matakuliah->kuota
-            ]
-        );
 
-        $this->tersisa = $pertemuan->jumlah;
-        $this->kunci = $pertemuan->kunci;
-        $this->idPertemuan = $pertemuan->id;
+        $whereArray = [
+            'matakuliah_id' => $this->matakuliah_id,
+            'urutan'        => $this->urutan,
+        ];
+
+        $pertemuan = Pertemuan::where($whereArray)->first();
+
+        if ($pertemuan) {
+            $pertemuan->update([
+                'matakuliah_id' => $this->matakuliah_id,
+                'urutan'        => $this->urutan,
+                'kunci'         => $this->encryptRSA(100),
+            ]);
+        } else {
+            $pertemuan = Pertemuan::create([
+                'matakuliah_id' => $this->matakuliah_id,
+                'urutan'        => $this->urutan,
+                'kunci'         => $this->encryptRSA(100),
+                'jumlah'        => $matakuliah->kuota
+            ]);
+        }
+
+        // PASSING DATA KE QR CODE
+        $this->tersisa  = $pertemuan->jumlah;
+        $this->kunci    = $pertemuan->kunci;
+        $this->urutan   = $this->urutan;
     }
 
     public function resetForm()
     {
         $this->reset([
-            'idPertemuan', 'matakuliah_id', 'urutan', 'kunci', 'tersisa'
+            'id_pertemuan', 'matakuliah_id', 'urutan', 'kunci', 'tersisa'
         ]);
+    }
+
+    protected function encryptRSA($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+
+        for ($i = 0; $i <= $length; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $randomString .= $characters[$index];
+        }
+
+        return $randomString;
     }
 }

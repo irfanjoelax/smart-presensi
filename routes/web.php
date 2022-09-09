@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 // AUTHENTICATION ROUTE
@@ -36,6 +36,5 @@ Route::get('/dosen/generate-qr', function () {
 
 // MAHASISWA ROUTE
 Route::get('/mahasiswa/dashboard', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'index']);
-Route::get('/mahasiswa/profile', function () {
-    return view('mahasiswa.profile');
-});
+Route::get('/mahasiswa/profile', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'profile']);
+Route::get('/mahasiswa/presensi/{matakuliah_id}/{urutan}/{kunci}', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'presensi']);

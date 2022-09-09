@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Matakuliah extends Model
+class Presensi extends Model
 {
     use HasFactory;
 
@@ -16,8 +16,8 @@ class Matakuliah extends Model
      */
     protected $guarded = [];
 
-    public function user()
+    public function pertemuan()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\Pertemuan');
     }
 }

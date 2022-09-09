@@ -15,4 +15,9 @@ class Pertemuan extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function presensis()
+    {
+        return $this->hasMany('App\Models\Presensi');
+    }
 }

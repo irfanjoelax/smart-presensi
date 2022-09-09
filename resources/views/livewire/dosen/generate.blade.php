@@ -1,7 +1,6 @@
 <div class="row">
     <div class="col-md-5">
         <form class="card rounded shadow p-3" wire:submit.prevent="submit">
-            <input type="hidden" wire:model="idPertemuan">
             <div class="form-group mb-3">
                 <label>Mata Kuliah</label>
                 <select class="form-control @error('matakuliah_id') is-invalid @enderror" wire:model="matakuliah_id">
@@ -55,9 +54,9 @@
             <p class="h5 text-center">Tersisa: <strong class="text-primary">{{ $tersisa }}</strong> Mahasiswa</p>
             @if ($kunci != null)
                 <div class="m-auto text-center pt-4">
-                    {{-- {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $idPertemuan . '/' . $kunci)) !!} --}}
+                    {{-- {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!} --}}
                     {!! QrCode::size(300)->generate(
-                        '192.168.28.87/smart-presensi/public/mahasiswa/presensi/' . $matakuliah_id . '/' . $idPertemuan . '/' . $kunci,
+                        'http://192.168.152.87/smart-presensi/public/mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci,
                     ) !!}
                     <p class="mt-3">
                         <small>Scan QR code untuk melakukan presensi</small>
