@@ -26,12 +26,17 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // DOSEN ROUTE
-Route::get('/dosen/dashboard', [App\Http\Controllers\Dosen\DashboardController::class, 'index']);
+Route::get('/dosen/dashboard', function () {
+    return view('dosen.dashboard', ['activeMenu' => 'dashboard']);
+});
 Route::get('/dosen/matakuliah', function () {
-    return view('dosen.matakuliah');
+    return view('dosen.matakuliah', ['activeMenu' => 'matakuliah']);
 });
 Route::get('/dosen/generate-qr', function () {
-    return view('dosen.generate-qr');
+    return view('dosen.generate-qr', ['activeMenu' => 'generate-qr']);
+});
+Route::get('/dosen/presensi', function () {
+    return view('dosen.presensi', ['activeMenu' => 'presensi']);
 });
 
 // MAHASISWA ROUTE

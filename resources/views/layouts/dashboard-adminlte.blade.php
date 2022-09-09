@@ -25,17 +25,17 @@
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link text-danger" role="button" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -72,7 +72,8 @@
                         data-accordion="false">
                         <li class="nav-header">HOME</li>
                         <li class="nav-item">
-                            <a href="{{ url('dosen/dashboard', []) }}" class="nav-link">
+                            <a href="{{ url('dosen/dashboard', []) }}"
+                                class="nav-link {{ $activeMenu == 'dashboard' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -82,7 +83,8 @@
 
                         <li class="nav-header">FITUR</li>
                         <li class="nav-item">
-                            <a href="{{ url('dosen/generate-qr', []) }}" class="nav-link">
+                            <a href="{{ url('dosen/generate-qr', []) }}"
+                                class="nav-link {{ $activeMenu == 'generate-qr' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-qrcode"></i>
                                 <p>
                                     Generate QR Code
@@ -92,7 +94,8 @@
 
                         <li class="nav-header">KELAS AREA</li>
                         <li class="nav-item">
-                            <a href="{{ url('dosen/matakuliah', []) }}" class="nav-link">
+                            <a href="{{ url('dosen/matakuliah', []) }}"
+                                class="nav-link {{ $activeMenu == 'matakuliah' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Mata Kuliah
@@ -100,7 +103,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('dosen/dashboard', []) }}" class="nav-link">
+                            <a href="{{ url('dosen/presensi', []) }}"
+                                class="nav-link {{ $activeMenu == 'presensi' ? 'active' : '' }}">
                                 <i class="nav-icon far fa-address-book"></i>
                                 <p>
                                     Presensi
