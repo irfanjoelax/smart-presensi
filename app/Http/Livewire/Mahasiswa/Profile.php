@@ -37,6 +37,7 @@ class Profile extends Component
             'password'  => $newPassword,
         ]);
 
+        session()->flash('alert', 'Profile kamu berhasil diubah.');
         return redirect()->to('/mahasiswa/profile');
     }
 }

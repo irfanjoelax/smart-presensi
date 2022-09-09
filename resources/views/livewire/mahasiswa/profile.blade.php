@@ -1,4 +1,10 @@
 <form wire:submit.prevent="submit">
+    @if (session()->has('alert'))
+        <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+            {{ session('alert') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" wire:model="name">
