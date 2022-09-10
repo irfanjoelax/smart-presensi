@@ -27,7 +27,8 @@ class Generate extends Component
 
     public function passDataKuota($data)
     {
-        $this->tersisa = $data['tersisa'];
+        // $this->tersisa = $data['tersisa'];
+        dd($data);
     }
 
     public function render()

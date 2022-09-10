@@ -56,10 +56,7 @@
             </p>
             @if ($kunci != null)
                 <div class="m-auto text-center pt-4">
-                    {{-- {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!} --}}
-                    {!! QrCode::size(300)->generate(
-                        'http://192.168.152.87/smart-presensi/public/mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci,
-                    ) !!}
+                    {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!}
                     <p class="mt-3">
                         <small>Scan QR code untuk melakukan presensi</small>
                     </p>
