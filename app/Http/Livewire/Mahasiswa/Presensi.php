@@ -32,7 +32,7 @@ class Presensi extends Component
             ModelsPresensi::create($whereArray);
             $pertemuan = Pertemuan::find($this->id_pertemuan);
             $pertemuan->decrement('jumlah', 1);
-            $this->emit('reloadKuota', [
+            $this->emitTo('Dosen.Generate', 'reloadKuota', [
                 'tersisa' => $pertemuan->jumlah
             ]);
         }
