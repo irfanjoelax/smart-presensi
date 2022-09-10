@@ -13,8 +13,8 @@
         <h5 class="text-muted">Daftar presensi mata kuliah kamu.</h5>
     </div>
     <div class="row mt-3">
-        <div class="col-12 mb-3">
-            @foreach ($presensis as $presensi)
+        @foreach ($presensis as $presensi)
+            <div class="col-12 mb-3">
                 <div class="bg-white shadow p-3 rounded">
                     <h5 class="fw-bold">{{ $presensi->pertemuan->matakuliah->nama }}</h5>
                     <h6 class="text-muted">{{ $presensi->pertemuan->matakuliah->user->name }}</h6>
@@ -29,7 +29,7 @@
                         </span>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 @endsection
