@@ -27,23 +27,27 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // DOSEN ROUTE
-Route::get('/dosen/dashboard', function () {
-    return view('dosen.dashboard', [
-        'activeMenu' => 'dashboard',
-        'totalMatakuliah' => Matakuliah::where('user_id', Auth::id())->count(),
-    ]);
-});
-Route::get('/dosen/matakuliah', function () {
-    return view('dosen.matakuliah', ['activeMenu' => 'matakuliah']);
-});
-Route::get('/dosen/generate-qr', function () {
-    return view('dosen.generate-qr', ['activeMenu' => 'generate-qr']);
-});
-Route::get('/dosen/presensi', function () {
-    return view('dosen.presensi', ['activeMenu' => 'presensi']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dosen/dashboard', function () {
+        return view('dosen.dashboard', [
+            'activeMenu' => 'dashboard',
+            'totalMatakuliah' => Matakuliah::where('user_id', Auth::id())->count(),
+        ]);
+    });
+    Route::get('/dosen/matakuliah', function () {
+        return view('dosen.matakuliah', ['activeMenu' => 'matakuliah']);
+    });
+    Route::get('/dosen/generate-qr', function () {
+        return view('dosen.generate-qr', ['activeMenu' => 'generate-qr']);
+    });
+    Route::get('/dosen/presensi', function () {
+        return view('dosen.presensi', ['activeMenu' => 'presensi']);
+    });
 });
 
 // MAHASISWA ROUTE
-Route::get('/mahasiswa/dashboard', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'index']);
-Route::get('/mahasiswa/profile', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'profile']);
-Route::get('/mahasiswa/presensi/{matakuliah_id}/{urutan}/{kunci}', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'presensi']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mahasiswa/dashboard', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'index']);
+    Route::get('/mahasiswa/profile', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'profile']);
+    Route::get('/mahasiswa/presensi/{matakuliah_id}/{urutan}/{kunci}', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'presensi']);
+});
