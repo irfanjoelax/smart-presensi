@@ -30,7 +30,11 @@ class Presensi extends Component
 
         if (!$presensi) {
             ModelsPresensi::create($whereArray);
-            Pertemuan::find($this->id_pertemuan)->decrement('jumlah', 1);
+            $pertemuan = Pertemuan::find($this->id_pertemuan);
+            $pertemuan->decrement('jumlah', 1);
+            $this->emit('reloadKuota', [
+                'tersisa' => $pertemuan->jumlah
+            ]);
         }
 
         return redirect()->to('/mahasiswa/dashboard');

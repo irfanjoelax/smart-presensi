@@ -51,7 +51,9 @@
     </div>
     <div class="col-md-7">
         <div class="card rounded shadow p-3">
-            <p class="h5 text-center">Tersisa: <strong class="text-primary">{{ $tersisa }}</strong> Mahasiswa</p>
+            <p class="h5 text-center">
+                Tersisa: <strong class="text-primary">{{ $tersisa }}</strong> Mahasiswa
+            </p>
             @if ($kunci != null)
                 <div class="m-auto text-center pt-4">
                     {{-- {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!} --}}

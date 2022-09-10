@@ -21,6 +21,15 @@ class Generate extends Component
         'urutan.required' => 'Pertemuan tidak boleh kosong.',
     ];
 
+    protected $listeners = [
+        'reloadKuota' => 'passDataKuota',
+    ];
+
+    public function passDataKuota($data)
+    {
+        $this->tersisa = $data['tersisa'];
+    }
+
     public function render()
     {
         return view('livewire.dosen.generate', [
