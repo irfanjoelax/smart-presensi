@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Matakuliah;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // DOSEN ROUTE
 Route::get('/dosen/dashboard', function () {
-    return view('dosen.dashboard', ['activeMenu' => 'dashboard']);
+    return view('dosen.dashboard', [
+        'activeMenu' => 'dashboard',
+        'totalMatakuliah' => Matakuliah::where('user_id', Auth::id())->count(),
+    ]);
 });
 Route::get('/dosen/matakuliah', function () {
     return view('dosen.matakuliah', ['activeMenu' => 'matakuliah']);

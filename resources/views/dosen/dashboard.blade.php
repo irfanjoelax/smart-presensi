@@ -9,7 +9,7 @@
         <div class="col-lg-4 col-12">
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{ $totalMatakuliah }}</h3>
                     <p>Mata Kuliah</p>
                 </div>
                 <div class="icon">
