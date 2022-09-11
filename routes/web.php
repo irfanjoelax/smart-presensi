@@ -49,5 +49,6 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/mahasiswa/dashboard', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'index']);
     Route::get('/mahasiswa/profile', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'profile']);
+    Route::get('/mahasiswa/scan', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'scan']);
     Route::get('/mahasiswa/presensi/{matakuliah_id}/{urutan}/{kunci}', [App\Http\Controllers\Mahasiswa\DashboardController::class, 'presensi']);
 });

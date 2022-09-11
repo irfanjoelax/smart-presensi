@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
+    @yield('style')
 </head>
 
 <body class="bg-light">
@@ -48,6 +49,7 @@
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
+    @yield('script')
 </body>
 
 </html>

@@ -22,6 +22,11 @@ class DashboardController extends Controller
         return view('mahasiswa.profile');
     }
 
+    public function scan()
+    {
+        return view('mahasiswa.scan');
+    }
+
     public function presensi($matakuliah_id, $urutan, $kunci)
     {
         $whereArray = [

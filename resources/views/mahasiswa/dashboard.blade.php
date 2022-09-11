@@ -6,11 +6,16 @@
 
 @section('content')
     <div class="row">
-        <h1 class="display-1 mb-3">
-            <i class="fas fa-qrcode"></i>
-        </h1>
-        <h1 class="display-5 fw-bold">Halaman Dashboard</h1>
-        <h5 class="text-muted">Daftar presensi mata kuliah kamu.</h5>
+        <div class="col-12">
+            <h1 class="display-1 mb-3">
+                <i class="fas fa-tachometer-alt"></i>
+            </h1>
+            <h1 class="display-5 fw-bold">Halaman Dashboard</h1>
+            <h5 class="text-muted">Daftar presensi mata kuliah kamu.</h5>
+            <a href="{{ url('mahasiswa/scan') }}" class="btn btn-dark w-100">
+                Scan QR
+            </a>
+        </div>
     </div>
     <div class="row mt-3">
         @foreach ($presensis as $presensi)
