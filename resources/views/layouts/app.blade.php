@@ -49,6 +49,19 @@
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script>
+        function onScanSuccess(decodedText, decodedResult) {
+            window.location.replace(decodedText);
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", {
+                fps: 10,
+                qrbox: 250
+            });
+        html5QrcodeScanner.render(onScanSuccess);
+    </script>
     @yield('script')
 </body>
 

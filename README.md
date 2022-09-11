@@ -16,6 +16,7 @@ Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberikan o
 
 ### Node Package (NPM)
 - Turbolinks for SPA
+- mebjas/html5-qrcode for Scan QR
 
 ### Module
 - Multi Role (2): Dosen dan Mahasiswa
