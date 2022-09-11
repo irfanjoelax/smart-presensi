@@ -55,12 +55,25 @@
                 Tersisa: <strong class="text-primary">{{ $tersisa }}</strong> Mahasiswa
             </p>
             @if ($kunci != null)
-                <div class="m-auto text-center pt-4">
-                    {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!}
-                    <p class="mt-3">
-                        <small>Scan QR code untuk melakukan presensi</small>
-                    </p>
-                </div>
+                @if ($tersisa == 0)
+                    <div class="alert alert-warning mt-3 d-flex align-items-center justify-content-between"
+                        role="alert">
+                        <div class="d-flex flex-column">
+                            <strong>Terimakasih!</strong>
+                            <span>Presensi Mata kuliah telah penuh</span>
+                        </div>
+                        <a href="{{ url('/dosen/presensi', []) }}" class="alert-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                @else
+                    <div class="m-auto text-center pt-4">
+                        {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!}
+                        <p class="mt-3">
+                            <small>Scan QR code untuk melakukan presensi</small>
+                        </p>
+                    </div>
+                @endif
             @endif
         </div>
     </div>
