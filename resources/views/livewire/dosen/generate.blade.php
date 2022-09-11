@@ -51,9 +51,21 @@
     </div>
     <div class="col-md-7">
         <div class="card rounded shadow p-3">
-            <p class="h5 text-center">
-                Tersisa: <strong class="text-primary">{{ $tersisa }}</strong> Mahasiswa
-            </p>
+            <div class="d-flex align-items-center justify-content-between">
+                <span class="h5 mb-0 text-center">
+                    Tersisa: <strong class="text-primary">{{ $tersisa }}</strong> Mahasiswa
+                </span>
+                @if ($kunci != null)
+                    <button type="button" wire:click="refreshKuota({{ $id_pertemuan }})" class="btn btn-sm btn-light">
+                        <div wire:loading wire:target="refreshKuota">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </div>
+                        <div wire:loading.remove>
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                    </button>
+                @endif
+            </div>
             @if ($kunci != null)
                 @if ($tersisa == 0)
                     <div class="alert alert-warning mt-3 d-flex align-items-center justify-content-between"

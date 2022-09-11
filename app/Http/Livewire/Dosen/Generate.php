@@ -21,16 +21,6 @@ class Generate extends Component
         'urutan.required' => 'Pertemuan tidak boleh kosong.',
     ];
 
-    protected $listeners = [
-        'reloadKuota' => 'passDataKuota',
-    ];
-
-    public function passDataKuota($data)
-    {
-        // $this->tersisa = $data['tersisa'];
-        dd($data);
-    }
-
     public function render()
     {
         return view('livewire.dosen.generate', [
@@ -67,9 +57,16 @@ class Generate extends Component
         }
 
         // PASSING DATA KE QR CODE
-        $this->tersisa  = $pertemuan->jumlah;
-        $this->kunci    = $pertemuan->kunci;
-        $this->urutan   = $this->urutan;
+        $this->id_pertemuan = $pertemuan->id;
+        $this->tersisa      = $pertemuan->jumlah;
+        $this->kunci        = $pertemuan->kunci;
+        $this->urutan       = $this->urutan;
+    }
+
+    public function refreshKuota($idPertemuan)
+    {
+        $pertemuan = Pertemuan::find($idPertemuan);
+        $this->tersisa = $pertemuan->jumlah;
     }
 
     public function resetForm()
