@@ -13,6 +13,7 @@ Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberikan o
 - laravel/ui for Auth Scafolding
 - livewire/livewire version 2.*
 - simplesoftwareio/simple-qrcode version 4.*
+- paragonie/easyrsa for Encrypt RSA Feature
 
 ### Node Package (NPM)
 - Turbolinks for SPA
@@ -24,6 +25,7 @@ Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberikan o
 - Fitur Generate QR Code untuk setiap pertemuan Mata Kuliah: Role Dosen
 - Daftar Presensi berdasarkan Matakuliah dan Pertemuan: Role Dosen
 - Halaman pengaturan profile: Role Mahasiswa
+- Halaman scan QR Code: Role Mahasiswa
 
 ### Developer
 Dibuat dan dikembangkan oleh [Muhammad Irfan Permana, S.Kom.](https://wa.me/+6283140617623)

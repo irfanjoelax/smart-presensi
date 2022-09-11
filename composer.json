@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.10",
+        "paragonie/easyrsa": "^0.6.0",
         "simplesoftwareio/simple-qrcode": "~4"
     },
     "require-dev": {

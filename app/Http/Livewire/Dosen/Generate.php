@@ -6,6 +6,8 @@ use App\Models\Matakuliah;
 use App\Models\Pertemuan;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use ParagonIE\EasyRSA\KeyPair;
+use ParagonIE\EasyRSA\EasyRSA;
 
 class Generate extends Component
 {
@@ -45,13 +47,13 @@ class Generate extends Component
             $pertemuan->update([
                 'matakuliah_id' => $this->matakuliah_id,
                 'urutan'        => $this->urutan,
-                'kunci'         => $this->encryptRSA(100),
+                'kunci'         => $this->encryptRSA(10),
             ]);
         } else {
             $pertemuan = Pertemuan::create([
                 'matakuliah_id' => $this->matakuliah_id,
                 'urutan'        => $this->urutan,
-                'kunci'         => $this->encryptRSA(100),
+                'kunci'         => $this->encryptRSA(10),
                 'jumlah'        => $matakuliah->kuota
             ]);
         }
@@ -86,6 +88,16 @@ class Generate extends Component
             $randomString .= $characters[$index];
         }
 
-        return $randomString;
+        $keyPair = KeyPair::generateKeyPair(4096);
+
+        $secretKey = $keyPair->getPrivateKey();
+        $publicKey = $keyPair->getPublicKey();
+
+        $message = "test";
+        /** @var \ParagonIE\EasyRSA\PublicKey $publicKey */
+        /** @var \ParagonIE\EasyRSA\PrivateKey $secretKey */
+
+        $ciphertext = EasyRSA::encrypt($randomString, $publicKey);
+        return str_replace('/', '-', $ciphertext);
     }
 }

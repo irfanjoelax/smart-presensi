@@ -17,7 +17,7 @@ class CreatePertemuansTable extends Migration
             $table->id();
             $table->foreignId('matakuliah_id');
             $table->unsignedTinyInteger('urutan');
-            $table->string('kunci');
+            $table->longText('kunci');
             $table->unsignedInteger('jumlah');
             $table->timestamps();
         });
