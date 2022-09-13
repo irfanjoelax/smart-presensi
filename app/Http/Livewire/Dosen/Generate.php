@@ -47,13 +47,13 @@ class Generate extends Component
             $pertemuan->update([
                 'matakuliah_id' => $this->matakuliah_id,
                 'urutan'        => $this->urutan,
-                'kunci'         => $this->encryptRSA(10),
+                'kunci'         => $this->encryptRSA(5),
             ]);
         } else {
             $pertemuan = Pertemuan::create([
                 'matakuliah_id' => $this->matakuliah_id,
                 'urutan'        => $this->urutan,
-                'kunci'         => $this->encryptRSA(10),
+                'kunci'         => $this->encryptRSA(5),
                 'jumlah'        => $matakuliah->kuota
             ]);
         }
@@ -78,9 +78,9 @@ class Generate extends Component
         ]);
     }
 
-    protected function encryptRSA($length)
+    public function randomString($length)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomString = '';
 
         for ($i = 0; $i <= $length; $i++) {
@@ -88,16 +88,46 @@ class Generate extends Component
             $randomString .= $characters[$index];
         }
 
+        return $randomString;
+    }
+
+    protected function encryptViginere($key, $text)
+    {
+        $key = strtolower($key);
+
+        $ki = 0;
+        $kl = strlen($key);
+        $length = strlen($text);
+
+        for ($i = 0; $i < $length; $i++) {
+            if (ctype_alpha($text[$i])) {
+                if (ctype_upper($text[$i])) {
+                    $text[$i] = chr(((ord($key[$ki]) - ord("a") + ord($text[$i]) - ord("A")) % 26) + ord("A"));
+                } else {
+                    $text[$i] = chr(((ord($key[$ki]) - ord("a") + ord($text[$i]) - ord("a")) % 26) + ord("a"));
+                }
+
+                $ki++;
+
+                if ($ki >= $kl) {
+                    $ki = 0;
+                }
+            }
+        }
+
+        return $text;
+    }
+
+    protected function encryptRSA($length)
+    {
+        $randomString = $this->encryptViginere($this->randomString($length), $this->randomString($length));
+
         $keyPair = KeyPair::generateKeyPair(4096);
 
         $secretKey = $keyPair->getPrivateKey();
         $publicKey = $keyPair->getPublicKey();
 
-        $message = "test";
-        /** @var \ParagonIE\EasyRSA\PublicKey $publicKey */
-        /** @var \ParagonIE\EasyRSA\PrivateKey $secretKey */
-
         $ciphertext = EasyRSA::encrypt($randomString, $publicKey);
-        return str_replace('/', '-', $ciphertext);
+        return str_replace(['/', '$'], '-', $ciphertext);
     }
 }
