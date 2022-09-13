@@ -1,5 +1,5 @@
 ## About
-Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberikan oleh dosen di suatu Perguruan Tinggi dengan Metode Enkripsi RSA
+Smart Presensi adalah aplikasi absensi untuk setiap mata kuliah yang diberikan oleh dosen di suatu Perguruan Tinggi dengan Metode Enkripsi RSA + Viginere Chipher
 
 ### Requirements
 - HTML5, CSS3, Basic Javascript
