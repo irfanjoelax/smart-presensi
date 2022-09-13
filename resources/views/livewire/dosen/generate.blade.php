@@ -80,7 +80,7 @@
                     </div>
                 @else
                     <div class="m-auto text-center pt-4">
-                        {{-- {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!} --}}
+                        {!! QrCode::size(300)->generate(url('mahasiswa/presensi/' . $matakuliah_id . '/' . $urutan . '/' . $kunci)) !!}
                         <p class="mt-3">
                             <small>Scan QR code untuk melakukan presensi</small>
                         </p>
