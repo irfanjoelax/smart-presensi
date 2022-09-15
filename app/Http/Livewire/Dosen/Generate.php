@@ -128,6 +128,6 @@ class Generate extends Component
         $publicKey = $keyPair->getPublicKey();
 
         $ciphertext = EasyRSA::encrypt($randomString, $publicKey);
-        return str_replace(['/', '$'], '-', $ciphertext);
+        return str_replace(['/', '$', '+', '='], '-', $ciphertext);
     }
 }
